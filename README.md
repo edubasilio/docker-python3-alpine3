@@ -16,7 +16,7 @@ Alpine 3.11 Docker Image with:
 * python3-dev
 * py3-setuptools
 * py3-virtualenv
-* .build-deps
+* build-deps
 * ca-certificates
 * gcc
 * postgresql-dev
