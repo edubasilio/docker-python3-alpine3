@@ -26,5 +26,6 @@ Alpine 3.11 Docker Image with:
 * jpeg-dev
 * zlib-dev
 * bpython
-* python-poetry
+* poetry
+* pipenv
 * zsh & oh-my-zsh
