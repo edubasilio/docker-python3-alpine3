@@ -9,7 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 # set locale
 RUN apk add --no-cache tzdata && cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && echo "America/Sao_Paulo" > /etc/timezone
-RUN apk add --no-cache --virtual .build-deps ca-certificates gcc postgresql-dev linux-headers musl-dev libffi-dev jpeg-dev zlib-dev
+RUN apk add --no-cache --virtual .build-deps ca-certificates gcc postgresql-dev postgresql-client linux-headers musl-dev libffi-dev jpeg-dev zlib-dev
 
 # install general tools
 RUN apk add --no-cache git vim tree sqlite
