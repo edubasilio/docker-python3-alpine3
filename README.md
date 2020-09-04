@@ -20,6 +20,7 @@ Alpine 3.11 Docker Image with:
 * ca-certificates
 * gcc
 * postgresql-dev
+* postgresql-client
 * linux-headers
 * musl-dev
 * libffi-dev
