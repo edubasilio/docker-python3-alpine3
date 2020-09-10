@@ -11,7 +11,6 @@
 * py3-virtualenv
 * pip3
 * vim
-* git
 * sqlite
 * tree
 * build-deps
