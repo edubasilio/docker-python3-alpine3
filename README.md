@@ -13,6 +13,7 @@
 * vim
 * sqlite
 * tree
+* curl
 * build-deps
 * ca-certificates
 * gcc
