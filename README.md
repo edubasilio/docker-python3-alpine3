@@ -10,6 +10,7 @@
 * py3-setuptools
 * py3-virtualenv
 * pip3
+* git
 * vim
 * sqlite
 * tree
