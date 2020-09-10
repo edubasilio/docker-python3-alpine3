@@ -4,29 +4,48 @@
 ![MicroBadger Layers](https://img.shields.io/microbadger/layers/basiliocode/python3-alpine3?style=plastic)
 ![MicroBadger Size](https://img.shields.io/microbadger/image-size/basiliocode/python3-alpine3?style=plastic)
 
-[Docker Hub Page](https://hub.docker.com/repository/docker/basiliocode/python3-alpine3)
-
-Alpine 3.11 Docker Image with:
-* set locale America/São Paulo
+## Pre-Instaled packages:
 * python 3.8
+* python3-dev
+* py3-setuptools
+* py3-virtualenv
 * pip3
 * vim
 * git
 * sqlite
-* python3-dev
-* py3-setuptools
-* py3-virtualenv
+* tree
 * build-deps
 * ca-certificates
 * gcc
-* postgresql-dev
-* postgresql-client
 * linux-headers
 * musl-dev
 * libffi-dev
 * jpeg-dev
 * zlib-dev
 * bpython
-* poetry
-* pipenv
 * zsh & oh-my-zsh
+
+## Dockerfile
+For use this image in your Dockerfile:
+```docker
+FROM basiliocode/python3-alpine3
+RUN apk update && apk upgrade
+```
+
+### Set locale
+Example for set _São_Paulo_:
+```docker
+RUN apk add --no-cache tzdata && cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && echo "America/Sao_Paulo" > /etc/timezone
+```
+
+### Install packeges from [APK](https://pkgs.alpinelinux.org/packages)
+Example for install PostgreSQL Client:
+```docker
+RUN apk add --no-cache postgresql-dev postgresql-client
+```
+
+### Install packages from [PyPI](https://pypi.org/)
+Example for [poetry](https://python-poetry.org/) and [pipenv](https://pipenv.pypa.io/):
+```docker
+RUN pip install poetry pipenv
+```
