@@ -7,12 +7,8 @@ RUN apk update && apk upgrade
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE 1
 
-# set locale
-RUN apk add --no-cache tzdata && cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && echo "America/Sao_Paulo" > /etc/timezone
-RUN apk add --no-cache --virtual .build-deps ca-certificates gcc postgresql-dev postgresql-client linux-headers musl-dev libffi-dev jpeg-dev zlib-dev
-
 # install general tools
-RUN apk add --no-cache git vim tree sqlite
+RUN apk add --no-cache --virtual .build-deps ca-certificates gcc linux-headers musl-dev libffi-dev jpeg-dev zlib-dev git vim tree sqlite
 
 # intall python and develop tools
 RUN apk add --no-cache python3 python3-dev py3-setuptools py3-virtualenv
@@ -22,7 +18,7 @@ RUN python3 -m ensurepip && rm -r /usr/lib/python*/ensurepip
 RUN pip3 install --upgrade pip setuptools wheel
 RUN if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
 RUN cd /usr/bin && ln -sf python3 python && ln -sf pip3 pip
-RUN pip install bpython poetry pipenv
+RUN pip install bpython
 
 # turn python3 default
 RUN if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi
