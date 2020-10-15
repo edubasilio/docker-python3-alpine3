@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE 1
 
 # install general tools
-RUN apk add --no-cache --virtual .build-deps curl ca-certificates gcc linux-headers musl-dev libffi-dev jpeg-dev zlib-dev vim tree sqlite git
+RUN apk add --no-cache --virtual .build-deps curl ca-certificates gcc netcat linux-headers musl-dev libffi-dev jpeg-dev zlib-dev vim tree sqlite git
 
 # intall python and develop tools
 RUN apk add --no-cache python3 python3-dev py3-setuptools py3-virtualenv
